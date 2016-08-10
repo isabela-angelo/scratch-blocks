@@ -185,6 +185,19 @@
         }
       }
 
+      function teste() {
+        var prototypes = [];
+        var toolbox = getToolboxElement();
+        var blocks = toolbox.getElementsByTagName('block');
+        var blockXML = blocks[1];
+        var block = Blockly.Xml.domToBlock(blockXML, workspace);
+        block.initSvg();
+        block.moveBy(
+          Math.round(0),
+          Math.round(0)
+        );
+      }
+
       function sprinkles(n) {
         var prototypes = [];
         var toolbox = getToolboxElement();
@@ -502,6 +515,7 @@
       <input type="button" value="Sprinkles!" onclick="sprinkles(100)">
       <input type="button" value="Spaghetti!" onclick="spaghetti(10)">
       <input type="button" value="Fake some drags!" onclick="fakeManyDrags()">
+      <input type="button" value="Teste" onclick="teste()" />
     </p>
 
     <p>

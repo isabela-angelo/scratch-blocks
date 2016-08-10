@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html>	
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
     <title>Vertical Playground</title>
-
+    
     <script src="../blockly_uncompressed_vertical.js"></script>
     <script src="../msg/messages.js"></script>
     <script src="../blocks/math.js"></script>
@@ -19,8 +19,14 @@
     <script src="../blocks_vertical/pen.js"></script>
     <script src="../blocks_vertical/sound.js"></script>
     <script src="../blocks_vertical/sensing.js"></script>
-    <script src="../blocks_vertical/data.js"></script>
-    <script>
+    <script src="../blocks_vertical/data.js"></script>    
+    
+	<script src="barcode/jquery-1.9.0.min.js" type="text/javascript"></script>
+    <script src="barcode/quagga.js" type="text/javascript"></script>
+    <script src="barcode/live_w_locator.js" type="text/javascript"></script>	
+    <script src="barcode/global.js" type="text/javascript"></script>
+	
+    <script>    
       'use strict';
 
       var fakeDragStack = [];
@@ -186,7 +192,9 @@
         if (Blockly.selected) {
           workspace.glowStack(Blockly.selected.id, false);
         }
-      }
+	}
+      		
+	
 
       function sprinkles(n) {
         var prototypes = [];
@@ -332,6 +340,10 @@
           );
         }
       }
+      
+     
+      
+      
     </script>
 
     <style>
@@ -378,7 +390,10 @@
 
   <body onload="start()">
     <div id="collaborators"></div>
-    <div id="blocklyDiv"></div>
+    <div id="blocklyDiv"></div> 
+    
+    
+    
     <!-- Toolbox -->
     <xml id="toolbox-categories" style="display: none">
       <category name="Motion" colour="#4C97FF">
@@ -1329,8 +1344,16 @@
       Stress test: &nbsp;
       <input type="button" value="Sprinkles!" onclick="sprinkles(100)">
       <input type="button" value="Spaghetti!" onclick="spaghetti(3)">
-      <input type="button" value="Fake some drags!" onclick="fakeManyDrags()">
+      <input type="button" value="Fake some drags!" onclick="fakeManyDrags()">      
     </p>
+    <section id="container" class="container">
+        
+      <div id="result_strip" style="display: none;">
+        <ul class="thumbnails"></ul>
+        <ul class="collector"></ul>
+      </div>
+      <div id="interactive" class="viewport" style="display: none;" ></div>
+    </section>
 
     <p>
       Glows: &nbsp;
